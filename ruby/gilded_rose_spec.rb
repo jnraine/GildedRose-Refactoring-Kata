@@ -167,35 +167,35 @@ describe GildedRose do
       context "conjured item" do
         let(:name) { "Conjured Mana Cake" }
 
-        xit { expect(item.sell_in).to eql initial_sell_in-1 }
+        it { expect(item.sell_in).to eql initial_sell_in-1 }
 
         context "before the sell date" do
           let(:initial_sell_in) { 5 }
-          xit { expect(item.quality).to eql initial_quality-2 }
+          it { expect(item.quality).to eql initial_quality-2 }
 
           context "at zero quality" do
             let(:initial_quality) { 0 }
-            xit { expect(item.quality).to eql initial_quality }
+            it { expect(item.quality).to eql initial_quality }
           end
         end
 
         context "on sell date" do
           let(:initial_sell_in) { 0 }
-          xit { expect(item.quality).to eql initial_quality-4 }
+          it { expect(item.quality).to eql initial_quality-4 }
 
           context "at zero quality" do
             let(:initial_quality) { 0 }
-            xit { expect(item.quality).to eql initial_quality }
+            it { expect(item.quality).to eql initial_quality }
           end
         end
 
         context "after sell date" do
           let(:initial_sell_in) { -10 }
-          xit { expect(item.quality).to eql initial_quality-4 }
+          it { expect(item.quality).to eql initial_quality-4 }
 
           context "at zero quality" do
             let(:initial_quality) { 0 }
-            xit { expect(item.quality).to eql initial_quality }
+            it { expect(item.quality).to eql initial_quality }
           end
         end
       end
